@@ -1,0 +1,237 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!--<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//PT-BR">-->
+<html xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<head>
+	<meta charset='utf-8' />
+	<meta name='viewport' content='width=device-width, initial-scale=1.0' />
+	<title>Æddictor - Addictive Editor</title>
+
+	<!--fonts-->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin" />
+		<link href="https://fonts.googleapis.com/css2?family=Arvo" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700" rel="stylesheet" />
+	<!--/fonts-->
+
+	<style>
+		:root {
+			--body-height: 0px;
+			--body-width: 100%;
+			--font-text: "Noto Sans", Sans-Serif;
+			--size-text: 12pt;
+		}
+		html, body {
+			margin: 0;
+            height: 100%;
+            --body-height: height;
+            width: 100%;
+		}
+		body{
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: center;
+			background-image: linear-gradient(lightgray, white);
+		}
+		div, input, textarea {
+			margin: 0px;
+		}
+		#main {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			background-color: transparent;
+			border-top-right-radius: 0.5em;
+            border-top-left-radius: 0.5em;
+            border-bottom-right-radius: 0.5em;
+            border-bottom-left-radius: 0.5em;
+			box-shadow: 0px 0px 50px 5px lightgray;
+		}
+		#titleBar {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			width: 400px;
+			border-top-right-radius: 0.5em;
+            border-top-left-radius: 0.5em;
+		}
+		#titleBar, #toolsBar {
+			background-color: ghostwhite;
+		}
+		#title {
+			font-family: 'Arvo', serif;
+			font-size: 10pt;
+			margin-left: 10px;
+			margin-top: 2px;
+			cursor: default;
+			user-select: none;
+		}
+		#rightCorner{
+			margin-right: 8px;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+		}
+		.capsule {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			width: 400px;
+			background-color: transparent;
+		}
+		#fontText:: selected {
+			--font-text: value;
+		}
+		select, [type='button'] {
+			font-size: 10pt;
+			margin: 0px;
+			height: 25px;
+			cursor: pointer;
+			user-select: none;
+			background-color: transparent;
+			border: none;
+		}
+		select:hover, [type='button']:hover {
+			background-color: rgba(0, 0, 0, 0.04);
+		}
+		.justifyButton {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			padding: 0px 5px 0 5px;
+		}
+		.capsuleBars{
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+		}
+		.barJB {
+			background-color: black;
+			height: 1.8px;
+		}
+		.barSpace{
+			background-color: transparent;
+			height: 1.8px;
+		}
+		.largeBarJB {
+			width: 9px;
+		}
+		.smallBarJB {
+			width: 6px;
+		}
+		textarea {
+			min-height: 350px;
+			width: 100%;
+			resize: none;
+			padding: 5px;
+			font-family: var(--font-text);
+			border: none;
+			border-bottom-right-radius: 0.5em;
+            border-bottom-left-radius: 0.5em;
+        }
+		textarea:focus, input:focus, select:focus {
+			outline: none;
+		}
+	</style>
+
+	<b:skin><![CDATA[]]></b:skin>
+</head>
+<body>
+	<b:section class='header-section' id='header-section' maxwidgets='1' showaddelement='no'/>
+
+	<div id='main'>
+		<div id='titleBar' class='capsule'>
+			<div id='title'>Æddictor - Addictive Editor</div>
+			<div id='rightCorner' >
+				<input id='changeMode' onclick='changeMode();' type='button' value='&#128428;' style='text-height: 1em;' />
+				<input id='changeMode' onclick='changeMode();' type='button' value='&#9681;' />
+			</div>
+		</div>
+		<div id='toolsBar' class='capsule'>
+			<input id='applyUndo' onclick='applyUndo();' type='button' style='font-weight: bold;' value='&#11178;' />
+			<input id='applyRedo' onclick='applyRedo();' type='button' style='font-weight: bold;' value='&#11179;' />
+			<select id='fontText' name='fontText' style='width: 100px;'>
+				<option class='optionFontText' value='Noto Sans' style='font-family: "Noto Sans", sans-serif;' selected='selected'>Noto Sans</option>
+				<option class='optionFontText' value='Noto Serif' style='font-family: "Noto Serif", serif;'>Noto Serif</option>
+			</select>
+			<select id='sizeText' name='sizeText'>
+				<option class='optionSizeText' value='6'>6</option>
+				<option class='optionSizeText' value='8'>8</option>
+				<option class='optionSizeText' value='9'>9</option>
+				<option class='optionSizeText' value='10'>10</option>
+				<option class='optionSizeText' value='11'>11</option>
+				<option class='optionSizeText' value='12' selected='selected'>12</option>
+				<option class='optionSizeText' value='14'>14</option>
+				<option class='optionSizeText' value='16'>16</option>
+				<option class='optionSizeText' value='18'>18</option>
+				<option class='optionSizeText' value='20'>20</option>
+				<option class='optionSizeText' value='22'>22</option>
+				<option class='optionSizeText' value='24'>24</option>
+				<option class='optionSizeText' value='36'>36</option>
+				<option class='optionSizeText' value='48'>48</option>
+				<option class='optionSizeText' value='60'>60</option>
+				<option class='optionSizeText' value='72'>72</option>
+			</select>
+			<input id='applyTextBold' onclick='applyTextBold();' type='button' style='font-weight: bold; font-family: serif;' value='B' />
+			<input id='applyTextItalic' onclick='applyTextItalic();' type='button' style='font-style: italic; font-family: serif;' value='I' />
+			<input id='applyTextUnderline' onclick='applyTextUnderline();' type='button' style='text-decoration-line: underline;-webkit-text-decoration-line: underline; font-family: serif;' value='U' />
+			<input id='applyTextThrough' onclick='applyTextThrough();' type='button' style='text-decoration-line: line-through; font-family: serif;' value='T' />
+			<div id='applyTextLeft' onclick='applyTextLeft();' type='button' class='justifyButton' value='textLeft'>
+				<div class='capsuleBars' style='align-items: start;'>
+					<div class='barJB smallBarJB'></div>
+					<div class='barSpace largeBarJB'></div>
+					<div class='barJB largeBarJB'></div>
+					<div class='barSpace largeBarJB'></div>
+					<div class='barJB smallBarJB'></div>
+				</div>
+			</div>
+			<div id='applyTextCenter' onclick='applyTextCenter();' type='button' class='justifyButton' value='textCenter'>
+				<div class='capsuleBars' style='align-items: center;'>
+					<div class='barJB smallBarJB'></div>
+					<div class='barSpace largeBarJB'></div>
+					<div class='barJB largeBarJB'></div>
+					<div class='barSpace largeBarJB'></div>
+					<div class='barJB smallBarJB'></div>
+				</div>
+			</div>
+			<div id='applyTextRight' onclick='applyTextRight();' type='button' class='justifyButton' value='textRight'>
+				<div class='capsuleBars' style='align-items: end;'>
+					<div class='barJB smallBarJB'></div>
+					<div class='barSpace largeBarJB'></div>
+					<div class='barJB largeBarJB'></div>
+					<div class='barSpace largeBarJB'></div>
+					<div class='barJB smallBarJB'></div>
+				</div>
+			</div>
+			<div id='applyTextJustified' onclick='applyTextJustified();' type='button' class='justifyButton' value='textJustified'>
+				<div class='capsuleBars' style='align-items: center;'>
+					<div class='barJB largeBarJB'></div>
+					<div class='barSpace largeBarJB'></div>
+					<div class='barJB largeBarJB'></div>
+					<div class='barSpace largeBarJB'></div>
+					<div class='barJB largeBarJB'></div>
+				</div>
+			</div>
+			<input id='insertEmoji' onclick='insertEmoji();' type='button' value='&#128522;' />
+		</div>
+		<div id='textDiv' class='capsule'>
+			<textarea id='textArea' name='textArea' placeholder='Type your best mediocre text here &#128578;' rows='' type='text' autofocus='autofocus'></textarea>
+		</div>
+	</div>
+
+	<noscript>
+		You need to enable JavaScript to run this app.<p/>
+        Você precisa ativar o JavaScript para executar esta aplicação.
+    </noscript>
+
+	<script type='text/javascript' id='script_main'>
+	//<![CDATA[
+		function applyTextBold() {
+			document.getElementById('textArea').value = document.getElementById('textArea').value.bold();
+		}
+	//]]>
+	</script>
+</body>
+</html>
