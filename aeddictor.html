@@ -1,6 +1,5 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<!--<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//PT-BR">-->
-<html xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<!DOCTYPE html>
+<html>
 <head>
 	<meta charset='utf-8' />
 	<meta name='viewport' content='width=device-width, initial-scale=1.0' />
@@ -14,127 +13,7 @@
 		<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700" rel="stylesheet" />
 	<!--/fonts-->
 
-	<style>
-		:root {
-			--body-height: 0px;
-			--body-width: 100%;
-			--font-text: "Noto Sans", Sans-Serif;
-			--size-text: 12pt;
-		}
-		html, body {
-			margin: 0;
-            height: 100%;
-            --body-height: height;
-            width: 100%;
-		}
-		body{
-			display: flex;
-			flex-direction: row;
-			align-items: center;
-			justify-content: center;
-			background-image: linear-gradient(lightgray, white);
-		}
-		div, input, textarea {
-			margin: 0px;
-		}
-		#main {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			justify-content: center;
-			background-color: transparent;
-			border-top-right-radius: 0.5em;
-            border-top-left-radius: 0.5em;
-            border-bottom-right-radius: 0.5em;
-            border-bottom-left-radius: 0.5em;
-			box-shadow: 0px 0px 50px 5px lightgray;
-		}
-		#titleBar {
-			display: flex;
-			flex-direction: row;
-			justify-content: space-between;
-			width: 400px;
-			border-top-right-radius: 0.5em;
-            border-top-left-radius: 0.5em;
-		}
-		#titleBar, #toolsBar {
-			background-color: ghostwhite;
-		}
-		#title {
-			font-family: 'Arvo', serif;
-			font-size: 10pt;
-			margin-left: 10px;
-			margin-top: 2px;
-			cursor: default;
-			user-select: none;
-		}
-		#rightCorner{
-			margin-right: 8px;
-			display: flex;
-			flex-direction: row;
-			align-items: center;
-		}
-		.capsule {
-			display: flex;
-			flex-direction: row;
-			align-items: center;
-			width: 400px;
-			background-color: transparent;
-		}
-		#fontText:: selected {
-			--font-text: value;
-		}
-		select, [type='button'] {
-			font-size: 10pt;
-			margin: 0px;
-			height: 25px;
-			cursor: pointer;
-			user-select: none;
-			background-color: transparent;
-			border: none;
-		}
-		select:hover, [type='button']:hover {
-			background-color: rgba(0, 0, 0, 0.04);
-		}
-		.justifyButton {
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			padding: 0px 5px 0 5px;
-		}
-		.capsuleBars{
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-		}
-		.barJB {
-			background-color: black;
-			height: 1.8px;
-		}
-		.barSpace{
-			background-color: transparent;
-			height: 1.8px;
-		}
-		.largeBarJB {
-			width: 9px;
-		}
-		.smallBarJB {
-			width: 6px;
-		}
-		textarea {
-			min-height: 350px;
-			width: 100%;
-			resize: none;
-			padding: 5px;
-			font-family: var(--font-text);
-			border: none;
-			border-bottom-right-radius: 0.5em;
-            border-bottom-left-radius: 0.5em;
-        }
-		textarea:focus, input:focus, select:focus {
-			outline: none;
-		}
-	</style>
+	<link rel="stylesheet" type="text/css" href="style.css" />
 
 	<b:skin><![CDATA[]]></b:skin>
 </head>
@@ -145,7 +24,7 @@
 		<div id='titleBar' class='capsule'>
 			<div id='title'>Æddictor - Addictive Editor</div>
 			<div id='rightCorner' >
-				<input id='changeMode' onclick='changeMode();' type='button' value='&#128428;' style='text-height: 1em;' />
+				<input id='changeMode' onclick='changeMode();' type='button' value='&#128428;' style='font-size: 1em;' />
 				<input id='changeMode' onclick='changeMode();' type='button' value='&#9681;' />
 			</div>
 		</div>
