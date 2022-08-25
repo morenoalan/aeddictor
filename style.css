@@ -17,7 +17,7 @@ body{
     justify-content: center;
     background-image: linear-gradient(lightgray, white);
 }
-div, input, textarea {
+main, div, input, textarea {
     margin: 0px;
 }
 #main {
