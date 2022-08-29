@@ -6,3 +6,7 @@ function changeMode(){
     document.body.classList.toggle("body-dark-mode");
     document.getElementById("main").classList.toggle("main-dark-mode");
 }
+
+function speechToText(){
+
+}
