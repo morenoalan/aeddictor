@@ -19,13 +19,29 @@
 		<div id='titleBar' class='capsule'>
 			<div id='title'>Æddictor - Addictive Editor</div>
 			<div id='rightCorner' >
-				<input id='saveFile' onclick='saveFile();' type='button' value='&#128428;' style='font-size: 1em;' />
-				<input id='changeMode' onclick='changeMode();' type='button' value='&#9681;' />
+				<button id='saveFile' onclick='saveFile();'>
+					<span class="material-symbols-outlined">
+						file_download
+					</span>
+				</button>
+				<button id='changeMode' onclick='changeMode();'>
+					<span class="material-symbols-outlined">
+						dark_mode
+					</span>
+				</button>
 			</div>
 		</div>
 		<div id='toolsBar' class='capsule'>
-			<input id='applyUndo' onclick='applyUndo();' type='button' style='font-weight: bold;' value='&#11178;' />
-			<input id='applyRedo' onclick='applyRedo();' type='button' style='font-weight: bold;' value='&#11179;' />
+			<button id='applyUndo' onclick='applyUndo();'>
+				<span class="material-symbols-outlined">
+					reply
+				</span>
+			</button>
+			<button id='applyRedo' onclick='applyRedo();'>
+				<span class="material-symbols-outlined">
+					forward
+				</span>
+			</button>
 			<select id='fontText' name='fontText' style='width: 100px;'>
 				<option class='optionFontText' value='Noto Sans' style='font-family: "Noto Sans", sans-serif;' selected='selected'>Noto Sans</option>
 				<option class='optionFontText' value='Noto Serif' style='font-family: "Noto Serif", serif;'>Noto Serif</option>
@@ -68,26 +84,36 @@
 					format_strikethrough
 				</span>
 			</button>
-			<button id='applyTextLeft' onclick='applyTextLeft();'>
-				<span class="material-symbols-outlined">
-					format_align_left
-				</span>
-			</button>
-			<button id='applyTextCenter' onclick='applyTextCenter();'>
-				<span class="material-symbols-outlined">
-					format_align_center
-				</span>
-			</button>
-			<button id='applyTextRight' onclick='applyTextRight();'>
-				<span class="material-symbols-outlined">
-					format_align_right
-				</span>
-			</button>
-			<button id='applyTextJustified' onclick='applyTextJustified();'>
-				<span class="material-symbols-outlined">
-					format_align_justify
-				</span>
-			</button>
+			<ul id='formatAlign'>
+				<li>
+					<button id='applyTextLeft' onclick='applyTextLeft();'>
+						<span class="material-symbols-outlined">
+							format_align_left
+						</span>
+					</button>
+				</li>
+				<li>
+					<button id='applyTextCenter' onclick='applyTextCenter();'>
+						<span class="material-symbols-outlined">
+							format_align_center
+						</span>
+					</button>
+				</li>
+				<li>
+					<button id='applyTextRight' onclick='applyTextRight();'>
+						<span class="material-symbols-outlined">
+							format_align_right
+						</span>
+					</button>
+				</li>
+				<li>
+					<button id='applyTextJustified' onclick='applyTextJustified();'>
+						<span class="material-symbols-outlined">
+							format_align_justify
+						</span>
+					</button>
+				</li>
+			</ul>
 			<button id='insertEmoji' onclick='insertEmoji();'>
 				&#128522;
 			</button>
@@ -98,7 +124,7 @@
 			</button>
 			<button id='textoToSpeech' onclick='speechToText();'>
 				<span class="material-symbols-outlined">
-					volume_up
+					text_to_speech
 				</span>
 			</button>
 		</div>
