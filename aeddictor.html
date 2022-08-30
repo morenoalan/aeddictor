@@ -7,10 +7,10 @@
 
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin" />
-	<link href="https://fonts.googleapis.com/css2?family=Arvo" rel="stylesheet" />
-	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700" rel="stylesheet" />
-	<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700" rel="stylesheet" />
-	<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Arvo" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
 	<link rel="stylesheet" type="text/css" href="./style.css" />
 </head>
@@ -48,48 +48,59 @@
 				<option class='optionSizeText' value='60'>60</option>
 				<option class='optionSizeText' value='72'>72</option>
 			</select>
-			<input id='applyTextBold' onclick='applyTextBold();' type='button' style='font-weight: bold; font-family: serif;' value='B' />
-			<input id='applyTextItalic' onclick='applyTextItalic();' type='button' style='font-style: italic; font-family: serif;' value='I' />
-			<input id='applyTextUnderline' onclick='applyTextUnderline();' type='button' style='text-decoration-line: underline;-webkit-text-decoration-line: underline; font-family: serif;' value='U' />
-			<input id='applyTextThrough' onclick='applyTextThrough();' type='button' style='text-decoration-line: line-through; font-family: serif;' value='T' />
-			<div id='applyTextLeft' onclick='applyTextLeft();' type='button' class='justifyButton' value='textLeft'>
-				<div class='capsuleBars' style='align-items: start;'>
-					<div class='barJB smallBarJB'></div>
-					<div class='barSpace largeBarJB'></div>
-					<div class='barJB largeBarJB'></div>
-					<div class='barSpace largeBarJB'></div>
-					<div class='barJB smallBarJB'></div>
-				</div>
-			</div>
-			<div id='applyTextCenter' onclick='applyTextCenter();' type='button' class='justifyButton' value='textCenter'>
-				<div class='capsuleBars' style='align-items: center;'>
-					<div class='barJB smallBarJB'></div>
-					<div class='barSpace largeBarJB'></div>
-					<div class='barJB largeBarJB'></div>
-					<div class='barSpace largeBarJB'></div>
-					<div class='barJB smallBarJB'></div>
-				</div>
-			</div>
-			<div id='applyTextRight' onclick='applyTextRight();' type='button' class='justifyButton' value='textRight'>
-				<div class='capsuleBars' style='align-items: end;'>
-					<div class='barJB smallBarJB'></div>
-					<div class='barSpace largeBarJB'></div>
-					<div class='barJB largeBarJB'></div>
-					<div class='barSpace largeBarJB'></div>
-					<div class='barJB smallBarJB'></div>
-				</div>
-			</div>
-			<div id='applyTextJustified' onclick='applyTextJustified();' type='button' class='justifyButton' value='textJustified'>
-				<div class='capsuleBars' style='align-items: center;'>
-					<div class='barJB largeBarJB'></div>
-					<div class='barSpace largeBarJB'></div>
-					<div class='barJB largeBarJB'></div>
-					<div class='barSpace largeBarJB'></div>
-					<div class='barJB largeBarJB'></div>
-				</div>
-			</div>
-			<input id='insertEmoji' onclick='insertEmoji();' type='button' value='&#128522;' />
-			<input id='speechToText' onclick='speechToText();' type='button' value='&#xf130;' />
+			<button id='applyTextBold' onclick='applyTextBold();'>
+				<span class="material-symbols-outlined">
+					format_bold
+				</span>
+			</button>
+			<button id='applyTextItalic' onclick='applyTextItalic();'>
+				<span class="material-symbols-outlined">
+					format_italic
+				</span>
+			</button>
+			<button id='applyTextUnderline' onclick='applyTextUnderline();'>
+				<span class="material-symbols-outlined">
+					format_underlined
+				</span>
+			</button>
+			<button id='applyTextThrough' onclick='applyTextThrough();'>
+				<span class="material-symbols-outlined">
+					format_strikethrough
+				</span>
+			</button>
+			<button id='applyTextLeft' onclick='applyTextLeft();'>
+				<span class="material-symbols-outlined">
+					format_align_left
+				</span>
+			</button>
+			<button id='applyTextCenter' onclick='applyTextCenter();'>
+				<span class="material-symbols-outlined">
+					format_align_center
+				</span>
+			</button>
+			<button id='applyTextRight' onclick='applyTextRight();'>
+				<span class="material-symbols-outlined">
+					format_align_right
+				</span>
+			</button>
+			<button id='applyTextJustified' onclick='applyTextJustified();'>
+				<span class="material-symbols-outlined">
+					format_align_justify
+				</span>
+			</button>
+			<button id='insertEmoji' onclick='insertEmoji();'>
+				&#128522;
+			</button>
+			<button id='speechToText' onclick='speechToText();'>
+				<span class="material-symbols-outlined">
+					mic
+				</span>
+			</button>
+			<button id='textoToSpeech' onclick='speechToText();'>
+				<span class="material-symbols-outlined">
+					volume_up
+				</span>
+			</button>
 		</div>
 		<div id='textDiv' class='capsule'>
 			<textarea id='textArea' name='textArea' placeholder='Type your best mediocre text here &#128578;' rows='' type='text' autofocus='autofocus'></textarea>

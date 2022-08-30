@@ -22,7 +22,7 @@ body {
     background-image: linear-gradient(rgb(15, 15, 15), rgb(74, 74, 74));;
 }
 
-main, div, input, textarea {
+main, div, input, button, textarea {
     margin: 0px;
 }
 main {
@@ -75,16 +75,20 @@ main {
 #fontText::selection {
     --font-text: value;
 }
-select, [type='button'] {
+select,
+button,
+[type='button'] {
     font-size: 10pt;
     margin: 0px;
     height: 25px;
     cursor: pointer;
     user-select: none;
     background-color: transparent;
-    border: none;
+    border: none!important;
 }
-select:hover, [type='button']:hover {
+select:hover,
+button:hover,
+[type='button']:hover {
     background-color: rgba(0, 0, 0, 0.04);
 }
 .justifyButton {
@@ -124,4 +128,12 @@ textarea {
 }
 textarea:focus, input:focus, select:focus {
     outline: none;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 1,
+  'wght' 600,
+  'GRAD' 0,
+  'opsz' 48
 }
