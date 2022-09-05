@@ -15,7 +15,6 @@
 html, body {
     margin: 0;
     height: 100%;
-    --body-height: height;
     width: 100%;
 }
 body {
@@ -224,7 +223,7 @@ p {
     font-family: 'Arvo', serif;
     font-size: 10pt;
 }
-#author {
+footer > p > a {
     text-decoration: none;
     color: var(--color-text-footer);
 }
