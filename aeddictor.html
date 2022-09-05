@@ -4,141 +4,158 @@
 	<meta charset='UTF-8' />
 	<meta name='viewport' content='width=device-width, initial-scale=1.0' />
 	<title>Æddictor - Addictive Editor</title>
-
-	<link rel="preconnect" href="https://fonts.googleapis.com" />
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin" />
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Arvo" />
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700" />
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700" />
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-
-	<link rel="stylesheet" type="text/css" href="./style.css" />
+	<meta name='description' content='Addictive text editor for addicted people to writing' />
+    <meta name='keywords' content='aeddictor, text editor, notepad' />
+    <meta name='author' content='github.com/morenoalan' />
+	<link rel='preconnect' href='https://fonts.googleapis.com' />
+	<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin='crossorigin' />
+	<link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700' />
+	<link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;0,700;1,400;1,700' />
+	<link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Mali:ital,wght@0,400;0,700;1,400;1,700' />
+	<link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400;1,700' />
+	<link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700' />
+	<link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700' />
+	<link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400;1,700' />
+	<link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700' />
+	<link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200' />
+	<link rel='stylesheet' type='text/css' href='./style.css' />
 </head>
-<body>
-	<main id='main'>
-		<div id='titleBar' class='capsule'>
+<body id='body' class='body-light'>
+	<main id='main' class='main-light'>
+		<div id='title-bar' class='capsule capsule-light'>
 			<div id='title'>Æddictor - Addictive Editor</div>
-			<div id='rightCorner' >
-				<button id='saveFile' onclick='saveFile();'>
-					<span class="material-symbols-outlined">
+			<div id='right-top-corner'>
+				<button id='save-file' class='button button-light display-none' onclick='saveFile();'>
+					<span class='material-symbols-outlined'>
 						file_download
 					</span>
 				</button>
-				<button id='changeMode' onclick='changeMode();'>
-					<span class="material-symbols-outlined">
+				<button id='change-theme' class='button button-light' onclick='changeTheme("dark");'>
+					<span class='material-symbols-outlined'>
 						dark_mode
 					</span>
 				</button>
 			</div>
 		</div>
-		<div id='toolsBar' class='capsule'>
-			<button id='applyUndo' onclick='applyUndo();'>
-				<span class="material-symbols-outlined">
+		<div id='tools-bar' class='capsule capsule-light'>
+			<button id='apply-undo' class='button button-light display-none' onclick='applyUndo();'>
+				<span class='material-symbols-outlined'>
 					reply
 				</span>
 			</button>
-			<button id='applyRedo' onclick='applyRedo();'>
-				<span class="material-symbols-outlined">
+			<button id='apply-redo' class='button button-light display-none' onclick='applyRedo();'>
+				<span class='material-symbols-outlined'>
 					forward
 				</span>
 			</button>
-			<select id='fontText' name='fontText' style='width: 100px;'>
-				<option class='optionFontText' value='Noto Sans' style='font-family: "Noto Sans", sans-serif;' selected='selected'>Noto Sans</option>
-				<option class='optionFontText' value='Noto Serif' style='font-family: "Noto Serif", serif;'>Noto Serif</option>
+			<select id='font-text' class='button button-light scroll scroll-light' name='font-text' onchange='fontText(this.options[this.selectedIndex].style.fontFamily)'>
+				<option class='option-font-text' value='Arvo' style='font-family: "Arvo", serif;'>Arvo</option>
+				<option class='option-font-text' value='Josefin Sans' style='font-family: "Josefin Sans", sans-serif;'>Josefin Sans</option>
+				<option class='option-font-text' value='Mali' style='font-family: "Mali", cursive;'>Mali</option>
+				<option class='option-font-text' value='Montserrat' style='font-family: "Montserrat", sans-serif;'>Montserrat</option>
+				<option class='option-font-text' value='Noto Sans' style='font-family: "Noto Sans", sans-serif;' selected='selected'>Noto Sans</option>
+				<option class='option-font-text' value='Noto Serif' style='font-family: "Noto Serif", serif;'>Noto Serif</option>
+				<option class='option-font-text' value='Roboto' style='font-family: "Roboto", sans-serif;'>Roboto</option>
+				<option class='option-font-text' value='Space Mono' style='font-family: "Space Mono", monospace;'>Space Mono</option>
 			</select>
-			<select id='sizeText' name='sizeText'>
-				<option class='optionSizeText' value='6'>6</option>
-				<option class='optionSizeText' value='8'>8</option>
-				<option class='optionSizeText' value='9'>9</option>
-				<option class='optionSizeText' value='10'>10</option>
-				<option class='optionSizeText' value='11'>11</option>
-				<option class='optionSizeText' value='12' selected='selected'>12</option>
-				<option class='optionSizeText' value='14'>14</option>
-				<option class='optionSizeText' value='16'>16</option>
-				<option class='optionSizeText' value='18'>18</option>
-				<option class='optionSizeText' value='20'>20</option>
-				<option class='optionSizeText' value='22'>22</option>
-				<option class='optionSizeText' value='24'>24</option>
-				<option class='optionSizeText' value='36'>36</option>
-				<option class='optionSizeText' value='48'>48</option>
-				<option class='optionSizeText' value='60'>60</option>
-				<option class='optionSizeText' value='72'>72</option>
+			<select id='size-text' class='button button-light scroll' name='size-text' aria-setsize='4' onchange='sizeText(this.value)'>
+				<option class='option-size-text' value='7'>7</option>
+				<option class='option-size-text' value='8'>8</option>
+				<option class='option-size-text' value='9'>9</option>
+				<option class='option-size-text' value='10'>10</option>
+				<option class='option-size-text' value='11'>11</option>
+				<option class='option-size-text' value='12' selected='selected'>12</option>
+				<option class='option-size-text' value='14'>14</option>
+				<option class='option-size-text' value='16'>16</option>
+				<option class='option-size-text' value='18'>18</option>
+				<option class='option-size-text' value='20'>20</option>
+				<option class='option-size-text' value='22'>22</option>
+				<option class='option-size-text' value='24'>24</option>
+				<option class='option-size-text' value='36'>36</option>
+				<option class='option-size-text' value='48'>48</option>
+				<option class='option-size-text' value='60'>60</option>
+				<option class='option-size-text' value='72'>72</option>
 			</select>
-			<button id='applyTextBold' onclick='applyTextBold();'>
-				<span class="material-symbols-outlined">
+			<button id='apply-text-bold' class='button button-light' onclick='applyTextBold();'>
+				<span class='material-symbols-outlined'>
 					format_bold
 				</span>
 			</button>
-			<button id='applyTextItalic' onclick='applyTextItalic();'>
-				<span class="material-symbols-outlined">
+			<button id='apply-text-italic' class='button button-light' onclick='applyTextItalic();'>
+				<span class='material-symbols-outlined'>
 					format_italic
 				</span>
 			</button>
-			<button id='applyTextUnderline' onclick='applyTextUnderline();'>
-				<span class="material-symbols-outlined">
+			<button id='apply-text-underline' class='button button-light' onclick='applyTextUnderline();'>
+				<span class='material-symbols-outlined'>
 					format_underlined
 				</span>
 			</button>
-			<button id='applyTextThrough' onclick='applyTextThrough();'>
-				<span class="material-symbols-outlined">
+			<button id='apply-text-through' class='button button-light' onclick='applyTextThrough();'>
+				<span class='material-symbols-outlined'>
 					format_strikethrough
 				</span>
 			</button>
-			<ul id='formatAlign'>
-				<li>
-					<button id='applyTextLeft' onclick='applyTextLeft();'>
-						<span class="material-symbols-outlined">
-							format_align_left
-						</span>
-					</button>
-				</li>
-				<li>
-					<button id='applyTextCenter' onclick='applyTextCenter();'>
-						<span class="material-symbols-outlined">
-							format_align_center
-						</span>
-					</button>
-				</li>
-				<li>
-					<button id='applyTextRight' onclick='applyTextRight();'>
-						<span class="material-symbols-outlined">
-							format_align_right
-						</span>
-					</button>
-				</li>
-				<li>
-					<button id='applyTextJustified' onclick='applyTextJustified();'>
-						<span class="material-symbols-outlined">
-							format_align_justify
-						</span>
-					</button>
-				</li>
-			</ul>
-			<button id='insertEmoji' onclick='insertEmoji();'>
+			<div id='format-align' class='display-none'>
+				<ul>
+					<li>
+						<button id='apply-text-left' class='button button-light' onclick='applyTextLeft();'>
+							<span class='material-symbols-outlined'>
+								format_align_left
+							</span>
+						</button>
+					</li>
+					<li>
+						<button id='apply-text-center' class='button button-light' onclick='applyTextCenter();'>
+							<span class='material-symbols-outlined'>
+								format_align_center
+							</span>
+						</button>
+					</li>
+					<li>
+						<button id='apply-text-right' class='button button-light' onclick='applyTextRight();'>
+							<span class='material-symbols-outlined'>
+								format_align_right
+							</span>
+						</button>
+					</li>
+					<li>
+						<button id='apply-text-justified' class='button button-light' onclick='applyTextJustified();'>
+							<span class='material-symbols-outlined'>
+								format_align_justify
+							</span>
+						</button>
+					</li>
+				</ul>
+			</div>
+			<button id='insert-emoji' class='button button-light display-none' onclick='insertEmoji();'>
 				&#128522;
 			</button>
-			<button id='speechToText' onclick='speechToText();'>
-				<span class="material-symbols-outlined">
+			<button id='speech-to-text' class='button button-light display-none' onclick='speechToText();'>
+				<span class='material-symbols-outlined'>
 					mic
 				</span>
 			</button>
-			<button id='textoToSpeech' onclick='speechToText();'>
-				<span class="material-symbols-outlined">
+			<button id='text-to-speech' class='button button-light display-none' onclick='speechToText();'>
+				<span class='material-symbols-outlined'>
 					text_to_speech
 				</span>
 			</button>
 		</div>
-		<div id='textDiv' class='capsule'>
-			<textarea id='textArea' name='textArea' placeholder='Type your best mediocre text here &#128578;' rows='' type='text' autofocus='autofocus'></textarea>
+		<div id='text-div' class='capsule text-area-light'>
+			<textarea id='text-area' class='text-area-light scroll scroll-light' name='text-area' placeholder='Type something nice &#128578;' rows='' type='text' autofocus='autofocus'></textarea>
 		</div>
 	</main>
+	<footer id='footer' class='centerV'>
+        <p class='centerH'><a id='author' href='https://www.github.com/morenoalan' target='_blank'>Alan Moreno</a> <span id='copyleft'>&#169;</span> <span id='copyleft-year'>2020</span></p>
+    </footer>
 
 	<noscript>
 		You need to enable JavaScript to run this app.<p/>
         Você precisa ativar o JavaScript para executar esta aplicação.
     </noscript>
 
-	<script type="text/javascript" id='script' src="./script.js"></script>
+	<script type='text/javascript' id='script' src='./script.js'></script>
 
 </body>
 </html>

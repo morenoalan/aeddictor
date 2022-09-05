@@ -1,33 +1,102 @@
-function applyTextBold() {
-    document.getElementById('textArea').value = document.getElementById('textArea').value.bold();
-}
+var statusTheme;
 
-var statusMode = "light";
-function changeMode(){
-    document.body.classList.toggle("body-dark-mode");
-    document.getElementById("main").classList.toggle("main-dark-mode");
-    if(statusMode == "light"){
-        document.getElementById("changeMode").children[0].innerText = "light_mode";
-        statusMode = "dark";
+function changeTheme(statusTheme){
+
+    document.body.classList.toggle('body-dark');
+
+    document.getElementById('main').classList.toggle('main-dark');
+
+    let capsuleLightElements = document.getElementsByClassName('capsule-light');
+    for(let i = 0; i < capsuleLightElements.length; i++){
+        capsuleLightElements[i].classList.toggle('capsule-dark');
+    }
+
+    let buttonLightElements = document.getElementsByClassName('button-light');
+    for(let j = 0; j < buttonLightElements.length; j++){
+        buttonLightElements[j].classList.toggle('button-dark');
+    }
+
+    document.getElementById('text-div').classList.toggle('text-area-dark');
+    document.getElementById('text-area').classList.toggle('text-area-dark');
+    document.getElementById('footer').classList.toggle('footer-dark');
+
+    let scrollLightElements = document.getElementsByClassName('scroll-light');
+    for(let k = 0; k < scrollLightElements.length; k++){
+        scrollLightElements[k].classList.toggle('scroll-dark');
+    }
+
+    let buttonChangeTheme = document.getElementById('change-theme');
+    if(statusTheme == 'dark'){
+        buttonChangeTheme.children[0].innerText = 'light_mode';
+        buttonChangeTheme.setAttribute('onclick', 'changeTheme("light");');
+        localStorage.setItem('theme', 'dark');
     }else{
-        document.getElementById("changeMode").children[0].innerText = "dark_mode";
-        statusMode = "light";
+        buttonChangeTheme.children[0].innerText = 'dark_mode';
+        buttonChangeTheme.setAttribute('onclick', 'changeTheme("dark");');
+        localStorage.setItem('theme', 'light');
     }
 }
 
-function speechToText(){
+function verifyLocalStorage(){
+    statusTheme = localStorage.getItem('theme');
+    if(statusTheme=='dark'){
+        changeTheme('dark');
+    }else{
+        statusTheme = 'light';
+    }
+    localStorage.setItem('theme', statusTheme);
+}
+verifyLocalStorage();
 
+var textStyle = document.getElementById('text-area').style;
+
+function fontText(selected){
+    textStyle.setProperty('font-family', selected);
+}
+
+function sizeText(selected){
+    textStyle.setProperty('font-size', selected+'pt');
+}
+
+function applyTextBold(){
+    if(textStyle.getPropertyValue("font-weight") != 'bold'){
+        textStyle.setProperty('font-weight', 'bold');
+    }else{
+        textStyle.setProperty('font-weight', '');
+    }
+}
+
+function applyTextItalic(){
+    if(textStyle.getPropertyValue("font-style") != 'italic'){
+        textStyle.setProperty('font-style', 'italic');
+        //document.getElementById('apply-text-italic').style.setProperty('background-color', 'rgb(30, 30, 30)');
+    }else{
+        textStyle.setProperty('font-style', '');
+        //document.getElementById('apply-text-italic').style.setProperty('background-color', 'rgb(40, 40, 40)');
+    }
+    //document.getElementById('text-area').value = document.getElementById('text-area').value.bold();
+}
+
+function applyTextUnderline(){
+    if(textStyle.getPropertyValue("text-decoration") != 'underline'){
+        textStyle.setProperty('text-decoration', 'underline');
+    }else{
+        textStyle.setProperty('text-decoration', '');
+    }
+}
+function applyTextThrough(){
+    if(textStyle.getPropertyValue("text-decoration") != 'line-through'){
+        textStyle.setProperty('text-decoration', 'line-through');
+    }else{
+        textStyle.setProperty('text-decoration', '');
+    }
 }
 
 function applyTextLeft(){
-    let formatAlignChildren = document.getElementById("formatAlign").children;
+    let formatAlignChildren = document.getElementById('format-align').children[0].children;
     for(let i = 0; i < formatAlignChildren.length; i++){
-        document.getElementById("formatAlign").children[i].style.setProperty('transform', 'scale(1)');
+        document.getElementById('format-align').children[0].children[i].style.setProperty('transform', 'scale(1)');
     }
-    //document.getElementById("formatAlign").getElementsByTagName("li")[1].style.setProperty('height', '-50px');
 }
 
-/*
-Change root
-document.documentElement.style.setProperty('--size-button', '40px');
-*/
+document.getElementById("copyleft-year").innerHTML =  new Date().getUTCFullYear();
