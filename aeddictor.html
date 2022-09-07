@@ -23,132 +23,134 @@
 </head>
 <body id='body' class='body-light'>
 	<main id='main' class='main-light'>
-		<div id='title-bar' class='capsule capsule-light'>
-			<div id='title'>Æddictor - Addictive Editor</div>
-			<div id='right-top-corner'>
-				<button id='save-file' class='button button-light display-none' onclick='saveFile();'>
+		<section id='main-header' class='main-header-light'>
+			<section id='title-bar' class='main-header-bars main-header-light'>
+				<div id='title'>Æddictor - Addictive Editor</div>
+				<div id='right-top-corner'>
+					<button id='save-file' class='button button-light display-none' onclick='saveFile();'>
+						<span class='material-symbols-outlined'>
+							file_download
+						</span>
+					</button>
+					<button id='change-theme' class='button button-light' onclick='changeTheme("dark");'>
+						<span class='material-symbols-outlined'>
+							dark_mode
+						</span>
+					</button>
+				</div>
+			</section>
+			<section id='tools-bar' class='main-header-bars main-header-light'>
+				<button id='apply-undo' class='button button-light display-none' onclick='applyUndo();'>
 					<span class='material-symbols-outlined'>
-						file_download
+						reply
 					</span>
 				</button>
-				<button id='change-theme' class='button button-light' onclick='changeTheme("dark");'>
+				<button id='apply-redo' class='button button-light display-none' onclick='applyRedo();'>
 					<span class='material-symbols-outlined'>
-						dark_mode
+						forward
 					</span>
 				</button>
-			</div>
-		</div>
-		<div id='tools-bar' class='capsule capsule-light'>
-			<button id='apply-undo' class='button button-light display-none' onclick='applyUndo();'>
-				<span class='material-symbols-outlined'>
-					reply
-				</span>
-			</button>
-			<button id='apply-redo' class='button button-light display-none' onclick='applyRedo();'>
-				<span class='material-symbols-outlined'>
-					forward
-				</span>
-			</button>
-			<select id='font-text' class='button button-light scroll scroll-light' name='font-text' onchange='fontText(this.options[this.selectedIndex].style.fontFamily)'>
-				<option class='option-font-text' value='Arvo' style='font-family: "Arvo", serif;'>Arvo</option>
-				<option class='option-font-text' value='Josefin Sans' style='font-family: "Josefin Sans", sans-serif;'>Josefin Sans</option>
-				<option class='option-font-text' value='Mali' style='font-family: "Mali", cursive;'>Mali</option>
-				<option class='option-font-text' value='Montserrat' style='font-family: "Montserrat", sans-serif;'>Montserrat</option>
-				<option class='option-font-text' value='Noto Sans' style='font-family: "Noto Sans", sans-serif;' selected='selected'>Noto Sans</option>
-				<option class='option-font-text' value='Noto Serif' style='font-family: "Noto Serif", serif;'>Noto Serif</option>
-				<option class='option-font-text' value='Roboto' style='font-family: "Roboto", sans-serif;'>Roboto</option>
-				<option class='option-font-text' value='Space Mono' style='font-family: "Space Mono", monospace;'>Space Mono</option>
-			</select>
-			<select id='size-text' class='button button-light scroll' name='size-text' aria-setsize='4' onchange='sizeText(this.value)'>
-				<option class='option-size-text' value='7'>7</option>
-				<option class='option-size-text' value='8'>8</option>
-				<option class='option-size-text' value='9'>9</option>
-				<option class='option-size-text' value='10'>10</option>
-				<option class='option-size-text' value='11'>11</option>
-				<option class='option-size-text' value='12' selected='selected'>12</option>
-				<option class='option-size-text' value='14'>14</option>
-				<option class='option-size-text' value='16'>16</option>
-				<option class='option-size-text' value='18'>18</option>
-				<option class='option-size-text' value='20'>20</option>
-				<option class='option-size-text' value='22'>22</option>
-				<option class='option-size-text' value='24'>24</option>
-				<option class='option-size-text' value='36'>36</option>
-				<option class='option-size-text' value='48'>48</option>
-				<option class='option-size-text' value='60'>60</option>
-				<option class='option-size-text' value='72'>72</option>
-			</select>
-			<button id='apply-text-bold' class='button button-light' onclick='applyTextBold();'>
-				<span class='material-symbols-outlined'>
-					format_bold
-				</span>
-			</button>
-			<button id='apply-text-italic' class='button button-light' onclick='applyTextItalic();'>
-				<span class='material-symbols-outlined'>
-					format_italic
-				</span>
-			</button>
-			<button id='apply-text-underline' class='button button-light' onclick='applyTextUnderline();'>
-				<span class='material-symbols-outlined'>
-					format_underlined
-				</span>
-			</button>
-			<button id='apply-text-through' class='button button-light' onclick='applyTextThrough();'>
-				<span class='material-symbols-outlined'>
-					format_strikethrough
-				</span>
-			</button>
-			<div id='format-align' class='display-none'>
-				<ul>
-					<li>
-						<button id='apply-text-left' class='button button-light' onclick='applyTextLeft();'>
-							<span class='material-symbols-outlined'>
-								format_align_left
-							</span>
-						</button>
-					</li>
-					<li>
-						<button id='apply-text-center' class='button button-light' onclick='applyTextCenter();'>
-							<span class='material-symbols-outlined'>
-								format_align_center
-							</span>
-						</button>
-					</li>
-					<li>
-						<button id='apply-text-right' class='button button-light' onclick='applyTextRight();'>
-							<span class='material-symbols-outlined'>
-								format_align_right
-							</span>
-						</button>
-					</li>
-					<li>
-						<button id='apply-text-justified' class='button button-light' onclick='applyTextJustified();'>
-							<span class='material-symbols-outlined'>
-								format_align_justify
-							</span>
-						</button>
-					</li>
-				</ul>
-			</div>
-			<button id='insert-emoji' class='button button-light display-none' onclick='insertEmoji();'>
-				&#128522;
-			</button>
-			<button id='speech-to-text' class='button button-light display-none' onclick='speechToText();'>
-				<span class='material-symbols-outlined'>
-					mic
-				</span>
-			</button>
-			<button id='text-to-speech' class='button button-light display-none' onclick='speechToText();'>
-				<span class='material-symbols-outlined'>
-					text_to_speech
-				</span>
-			</button>
-		</div>
-		<div id='text-div' class='capsule text-area-light'>
+				<select id='font-text' class='button button-light scroll scroll-light' name='font-text' onchange='fontText(this.options[this.selectedIndex].style.fontFamily)'>
+					<option class='option-font-text' value='Arvo' style='font-family: "Arvo", serif;'>Arvo</option>
+					<option class='option-font-text' value='Josefin Sans' style='font-family: "Josefin Sans", sans-serif;'>Josefin Sans</option>
+					<option class='option-font-text' value='Mali' style='font-family: "Mali", cursive;'>Mali</option>
+					<option class='option-font-text' value='Montserrat' style='font-family: "Montserrat", sans-serif;'>Montserrat</option>
+					<option class='option-font-text' value='Noto Sans' style='font-family: "Noto Sans", sans-serif;' selected='selected'>Noto Sans</option>
+					<option class='option-font-text' value='Noto Serif' style='font-family: "Noto Serif", serif;'>Noto Serif</option>
+					<option class='option-font-text' value='Roboto' style='font-family: "Roboto", sans-serif;'>Roboto</option>
+					<option class='option-font-text' value='Space Mono' style='font-family: "Space Mono", monospace;'>Space Mono</option>
+				</select>
+				<select id='size-text' class='button button-light scroll' name='size-text' aria-setsize='4' onchange='sizeText(this.value)'>
+					<option class='option-size-text' value='7'>7</option>
+					<option class='option-size-text' value='8'>8</option>
+					<option class='option-size-text' value='9'>9</option>
+					<option class='option-size-text' value='10'>10</option>
+					<option class='option-size-text' value='11'>11</option>
+					<option class='option-size-text' value='12' selected='selected'>12</option>
+					<option class='option-size-text' value='14'>14</option>
+					<option class='option-size-text' value='16'>16</option>
+					<option class='option-size-text' value='18'>18</option>
+					<option class='option-size-text' value='20'>20</option>
+					<option class='option-size-text' value='22'>22</option>
+					<option class='option-size-text' value='24'>24</option>
+					<option class='option-size-text' value='36'>36</option>
+					<option class='option-size-text' value='48'>48</option>
+					<option class='option-size-text' value='60'>60</option>
+					<option class='option-size-text' value='72'>72</option>
+				</select>
+				<button id='apply-text-bold' class='button button-light' onclick='applyTextBold();'>
+					<span class='material-symbols-outlined'>
+						format_bold
+					</span>
+				</button>
+				<button id='apply-text-italic' class='button button-light' onclick='applyTextItalic();'>
+					<span class='material-symbols-outlined'>
+						format_italic
+					</span>
+				</button>
+				<button id='apply-text-underline' class='button button-light' onclick='applyTextUnderline();'>
+					<span class='material-symbols-outlined'>
+						format_underlined
+					</span>
+				</button>
+				<button id='apply-text-through' class='button button-light' onclick='applyTextThrough();'>
+					<span class='material-symbols-outlined'>
+						format_strikethrough
+					</span>
+				</button>
+				<div id='format-align' class='display-none'>
+					<ul>
+						<li>
+							<button id='apply-text-left' class='button button-light' onclick='applyTextLeft();'>
+								<span class='material-symbols-outlined'>
+									format_align_left
+								</span>
+							</button>
+						</li>
+						<li>
+							<button id='apply-text-center' class='button button-light' onclick='applyTextCenter();'>
+								<span class='material-symbols-outlined'>
+									format_align_center
+								</span>
+							</button>
+						</li>
+						<li>
+							<button id='apply-text-right' class='button button-light' onclick='applyTextRight();'>
+								<span class='material-symbols-outlined'>
+									format_align_right
+								</span>
+							</button>
+						</li>
+						<li>
+							<button id='apply-text-justified' class='button button-light' onclick='applyTextJustified();'>
+								<span class='material-symbols-outlined'>
+									format_align_justify
+								</span>
+							</button>
+						</li>
+					</ul>
+				</div>
+				<button id='insert-emoji' class='button button-light display-none' onclick='insertEmoji();'>
+					&#128522;
+				</button>
+				<button id='speech-to-text' class='button button-light display-none' onclick='speechToText();'>
+					<span class='material-symbols-outlined'>
+						mic
+					</span>
+				</button>
+				<button id='text-to-speech' class='button button-light display-none' onclick='speechToText();'>
+					<span class='material-symbols-outlined'>
+						text_to_speech
+					</span>
+				</button>
+			</section>
+		</section>
+		<section id='text-section' class='textarea-envelop text-area-light'>
 			<textarea id='text-area' class='text-area-light scroll scroll-light' name='text-area' placeholder='Type something nice &#128578;' rows='' type='text' autofocus='autofocus'></textarea>
-		</div>
+		</section>
 	</main>
-	<footer id='footer' class='centerV'>
-        <p class='centerH'><a id='author' href='https://www.github.com/morenoalan' target='_blank'>Alan Moreno</a> <span id='copyleft'>&#169;</span> <span id='copyleft-year'>2020</span> | <a href='https://www.github.com/morenoalan/aeddictor' target='_blank'>Repository</a></p>
+	<footer id='footer'>
+        <p><a id='author' href='https://www.github.com/morenoalan' target='_blank'>Alan Moreno</a> <span id='copyleft'>&#169;</span> <span id='copyleft-year'>2020</span> | <a href='https://www.github.com/morenoalan/aeddictor' target='_blank'>Repository</a></p>
     </footer>
 
 	<noscript>

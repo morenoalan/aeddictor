@@ -6,9 +6,9 @@ function changeTheme(statusTheme){
 
     document.getElementById('main').classList.toggle('main-dark');
 
-    let capsuleLightElements = document.getElementsByClassName('capsule-light');
-    for(let i = 0; i < capsuleLightElements.length; i++){
-        capsuleLightElements[i].classList.toggle('capsule-dark');
+    let mainHeaderLightElements = document.getElementsByClassName('main-header-light');
+    for(let i = 0; i < mainHeaderLightElements.length; i++){
+        mainHeaderLightElements[i].classList.toggle('main-header-dark');
     }
 
     let buttonLightElements = document.getElementsByClassName('button-light');
@@ -16,7 +16,7 @@ function changeTheme(statusTheme){
         buttonLightElements[j].classList.toggle('button-dark');
     }
 
-    document.getElementById('text-div').classList.toggle('text-area-dark');
+    document.getElementById('text-section').classList.toggle('text-area-dark');
     document.getElementById('text-area').classList.toggle('text-area-dark');
     document.getElementById('footer').classList.toggle('footer-dark');
 
