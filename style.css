@@ -161,6 +161,8 @@ ul {
     transform: scale(1);
 }
 #text-section {
+    display: flex;
+    flex-direction: row;
     width: 100%;
     border-bottom-right-radius: 8px;
     border-bottom-left-radius: 8px;
@@ -269,7 +271,16 @@ footer > p > a {
 }
 
 @media (max-height: 496px){
+    main {
+        margin-top: 10px;
+        align-items: normal;
+        position: sticky;
+    }
+
     footer {
         position: relative;
+        top: 10px;
+        bottom: auto;
     }
+
 }
