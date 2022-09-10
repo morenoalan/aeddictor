@@ -98,5 +98,45 @@ function applyTextLeft(){
         document.getElementById('format-align').children[0].children[i].style.setProperty('transform', 'scale(1)');
     }
 }
+/*
+var mainTop = document.getElementById('main').offsetTop;
+function fixOnTop() {
+    if(window.pageYOffset >= mainTop) {
+        document.getElementById('main').classList.add('fixed-on-top');
+    }else{
+        document.getElementById('main').classList.remove('fixed-on-top');
+    }
+}
+window.onscroll = function() {
+    fixOnTop();
+}
+*/
 
-document.getElementById("copyleft-year").innerHTML =  new Date().getUTCFullYear();
+console.log(document.body.style.height+", "+ document.getElementById('footer').style.height);
+
+function fixOnTop() {
+    var rectMain = document.getElementById('main').getBoundingClientRect();
+    var rectFooter = document.getElementById('footer').getBoundingClientRect();
+
+    if(document.body.height > document.getElementById('footer').height){
+        document.getElementById('footer').classList.remove('fixed-on-main');
+    }else if (rectFooter.top <= rectMain.bottom){
+        document.getElementById('footer').classList.add('fixed-on-main');
+    }
+
+    if(rectFooter.top > rectMain.bottom) {
+        document.getElementById('main').classList.remove('fixed-on-top');
+    }else if(rectMain.top <= 10) {
+        document.getElementById('main').classList.add('fixed-on-top');
+    }else {
+        document.getElementById('main').classList.remove('fixed-on-top');
+    }
+}
+window.onload = function() {
+    fixOnTop();
+}
+window.onresize = function() {
+    fixOnTop();
+}
+
+document.getElementById('copyleft-year').innerHTML =  new Date().getUTCFullYear();

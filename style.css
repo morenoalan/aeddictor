@@ -264,12 +264,21 @@ footer > p > a {
     transform: scale(0.7);
 }
 
+.fixed-on-top {
+    position: fixed;
+    top: 10px;
+}
+
+.fixed-on-main {
+    position: static;
+}
+
 @media (max-width: 420px) {
     main {
         width: calc(100% - 20px);
     }
 }
-
+/*
 @media (max-height: 496px){
     main {
         margin-top: 10px;
@@ -284,3 +293,4 @@ footer > p > a {
     }
 
 }
+*/
