@@ -34,7 +34,7 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     background-color: transparent;
     border-top-right-radius: 8px;
     border-top-left-radius: 8px;
@@ -129,7 +129,7 @@ option {
     border: none;
     outline: none;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
 }
 .button-light {
     background-color: var(--color-bar);
@@ -164,6 +164,7 @@ ul {
 #text-section {
     display: flex;
     flex-direction: row;
+    justify-content: flex-start;
     width: 100%;
     border-bottom-right-radius: 8px;
     border-bottom-left-radius: 8px;
