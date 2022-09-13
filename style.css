@@ -97,15 +97,9 @@ main {
     margin-left: 5px;
     margin-right: 5px;
 }
-.main-header-bars,
-.textarea-envelop {
-    align-items: center;
+.main-header-bars {
     width: 100%;
     height: 100%;
-}
-.textarea-envelop {
-    display: flex;
-    flex-direction: column;
 }
 option {
     border-radius: 0;
@@ -166,12 +160,14 @@ ul {
     flex-direction: row;
     justify-content: flex-start;
     width: 100%;
+    height: 100%;
     border-bottom-right-radius: 8px;
     border-bottom-left-radius: 8px;
 }
 textarea {
     min-height: 350px;
     width: 100%;
+    height: 100%;
     resize: none;
     padding: 5px;
     font-family: var(--font-text);

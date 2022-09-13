@@ -1,3 +1,5 @@
+/* ---> LocalStorage Section <--- */
+
 function saveTextOnLocalStorage(){
     localStorage.setItem('text', document.getElementById('text-area').value);
 }
@@ -62,6 +64,9 @@ function verifyThemeOnLocalStorage(){
 }
 verifyThemeOnLocalStorage();
 
+
+/* ---> Styling Section <--- */
+
 var textStyle = document.getElementById('text-area').style;
 
 function fontText(selected){
@@ -112,6 +117,10 @@ function applyTextLeft(){
         document.getElementById('format-align').children[0].children[i].style.setProperty('transform', 'scale(1)');
     }
 }
+
+
+/* ---> Responsiveness Section <--- */
+
 /*
 var mainTop = document.getElementById('main').offsetTop;
 function fixOnTop() {
