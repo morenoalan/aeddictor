@@ -154,13 +154,13 @@ function fixElements() {
 
     let elementsHeight = mainElement.clientHeight + footerElement.clientHeight + 20;
     console.log(elementsHeight+', '+document.body.clientHeight);
-    if(document.body.clientHeight >= elementsHeight) {
+    if(document.body.clientHeight > elementsHeight) {
         mainElement.classList.remove('fixed-on-top');
-    }else if(rectMain.top <= 10) {
+    }else if(rectMain.top <= 10 && mainElement.classList.contains('fixed-on-top')!=true) {
         mainElement.classList.add('fixed-on-top');
-    }else {
+    } /*else {
         mainElement.classList.remove('fixed-on-top');
-    }
+    }*/
 /*
     let elementsHeight = rectMain.bottom + 10;
     if(document.body.clientHeight <= elementsHeight) {
@@ -178,5 +178,8 @@ window.onload = function() {
 window.onresize = function() {
     fixElements();
 }
+
+
+/* ---> Every-Other-Things Section <--- */
 
 document.getElementById('copyleft-year').innerHTML =  new Date().getUTCFullYear();

@@ -33,6 +33,7 @@ body {
 main {
     display: flex;
     flex-direction: column;
+    position: relative;
     align-items: center;
     justify-content: flex-start;
     background-color: transparent;
@@ -263,7 +264,7 @@ footer > p > a {
 }
 
 .fixed-on-top {
-    position: relative;
+    /*position: relative;*/
     top: 10px;
 }
 
