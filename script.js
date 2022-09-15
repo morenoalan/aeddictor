@@ -151,6 +151,7 @@ function fixElements() {
         footerElement.classList.add('fixed-on-main');
     }
     */
+   /*
 
     let elementsHeight = mainElement.clientHeight + footerElement.clientHeight + 20;
     console.log(elementsHeight+', '+document.body.clientHeight);
@@ -172,13 +173,14 @@ function fixElements() {
     }*/
     //mainElement.style.bottom = footerElement.clientHeight;
 }
+/*
 window.onload = function() {
     fixElements();
 }
 window.onresize = function() {
     fixElements();
 }
-
+*/
 
 /* ---> Every-Other-Things Section <--- */
 
