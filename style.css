@@ -85,7 +85,7 @@ main {
     cursor: default;
     user-select: none;
 }
-#right-top-corner{
+#right-top-corner {
     margin-right: 0px;
     display: flex;
     flex-direction: row;
@@ -230,7 +230,7 @@ footer {
     width: 100%;
     text-align: center;
 }
-.footer-dark{
+.footer-dark {
     color: ghostwhite;
 }
 p {
@@ -287,7 +287,7 @@ footer > p > a {
     }
 }
 /*
-@media (max-height: 496px){
+@media (max-height: 496px) {
     main {
         margin-top: 10px;
         align-items: normal;
