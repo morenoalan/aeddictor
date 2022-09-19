@@ -16,12 +16,13 @@ html, body {
     margin: 0;
     height: 100%;
     width: 100%;
+    overflow: auto;
 }
 body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     color: rgb(40, 40, 40);
 }
 .body-light {
@@ -30,23 +31,21 @@ body {
 .body-dark {
     background-image: linear-gradient(var(--color-dark-one), var(--color-dark-two));;
 }
-#shell {
+#vertical-centralizer {
     display: flex;
     flex-direction: column;
     position: relative;
-    align-items: center;
-    justify-content: top;
-    background-color: transparent;
-    overflow: hidden;
-    width: 400px;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    margin-top: 10px;
 }
 main {
     display: flex;
     flex-direction: column;
     position: relative;
     align-items: center;
-    justify-content: center;
-    resize: both;
+    justify-content: start;
     margin: 0 auto;
     background-color: transparent;
     border-top-right-radius: 8px;
@@ -55,7 +54,6 @@ main {
     border-bottom-left-radius: 8px;
     overflow: hidden;
     width: 400px;
-    min-height: 300px;
 }
 .main-light {
     box-shadow: 0px 0px 50px 5px lightgray;
@@ -112,6 +110,7 @@ main {
     margin-right: 5px;
 }
 .main-header-bars {
+    align-items: center;
     width: 100%;
     height: 100%;
 }
@@ -235,11 +234,11 @@ textarea:focus, input:focus, select:focus {
 }
 
 footer {
-    background-color: red;
+    background-color: transparent;
     position: relative;
     height: auto;
     margin-top: 10px;
-    padding: 10px;
+    padding: 10px 0 10px 0;
     width: 100%;
     text-align: center;
 }
@@ -278,42 +277,8 @@ footer > p > a {
     transform: scale(0.7);
 }
 
-.fixed-on-top {
-    /*position: relative;*/
-    top: 10px;
-}
-
-.fixed-on-bottom {
-    bottom: 0;
-}
-
-.fixed-on-footer {
-    position: fixed;
-    bottom: 36px;
-}
-
-.fixed-on-main {
-    position: static;
-}
-
 @media (max-width: 420px) {
     main {
         width: calc(100% - 20px);
     }
 }
-/*
-@media (max-height: 496px) {
-    main {
-        margin-top: 10px;
-        align-items: normal;
-        position: sticky;
-    }
-
-    footer {
-        position: relative;
-        top: 10px;
-        bottom: auto;
-    }
-
-}
-*/
