@@ -121,3 +121,16 @@ function applyTextLeft(){
 /* ---> Every-Other-Things Section <--- */
 
 document.getElementById('copyleft-year').innerHTML =  new Date().getUTCFullYear();
+
+function toggleFullscreen(status){
+    let buttonFullscreen = document.getElementById('toggle-fullscreen');
+    if(status == 'fullscreen-on'){
+        buttonFullscreen.children[0].innerText = 'fullscreen_exit';
+        buttonFullscreen.setAttribute('onclick', 'toggleFullscreen("fullscreen-off");');
+        document.getElementsByTagName('html')[0].requestFullscreen();
+    }else{
+        buttonFullscreen.children[0].innerText = 'fullscreen';
+        buttonFullscreen.setAttribute('onclick', 'toggleFullscreen("fullscreen-on");');
+        document.exitFullscreen();
+    }
+}
