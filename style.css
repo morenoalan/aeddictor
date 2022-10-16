@@ -285,10 +285,10 @@ footer > p > a {
 
 /* Loader section settings */
 #loader {
-    border: 12px solid red;
+    border: 12px solid rgb(130, 130, 130);
     border-radius: 50%;
-    border-top: 12px solid red;
-    border-right: 12px solid red;
+    border-top: 12px solid rgb(130, 130, 130);
+    border-right: 12px solid rgb(130, 130, 130);
     width: 70px;
     height: 70px;
     animation: spin 1s linear infinite;
