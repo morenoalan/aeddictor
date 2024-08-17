@@ -77,24 +77,25 @@ function sizeText(selected){
     textStyle.setProperty('font-size', selected+'pt');
 }
 
-function applyTextBold(){
-    if(textStyle.getPropertyValue("font-weight") != 'bold'){
-        textStyle.setProperty('font-weight', 'bold');
+function applyStyle(set, style){
+    if(textStyle.getPropertyValue(set) != style){
+        textStyle.setProperty(set, style);
     }else{
-        textStyle.setProperty('font-weight', '');
+        textStyle.setProperty(set, '');
     }
 }
 
-function applyTextItalic(){
-    if(textStyle.getPropertyValue("font-style") != 'italic'){
-        textStyle.setProperty('font-style', 'italic');
-        //document.getElementById('apply-text-italic').style.setProperty('background-color', 'rgb(30, 30, 30)');
-    }else{
-        textStyle.setProperty('font-style', '');
-        //document.getElementById('apply-text-italic').style.setProperty('background-color', 'rgb(40, 40, 40)');
+function sendStyle(style){
+    switch(style){
+        case 'bold':
+            applyStyle('font-weight', 'bold');
+            break;
+        case 'italic':
+            applyStyle('font-style', 'italic');
+            break;
     }
-    //document.getElementById('text-area').value = document.getElementById('text-area').value.bold();
 }
+
 
 function applyTextUnderline(){
     if(textStyle.getPropertyValue("text-decoration") != 'underline'){
