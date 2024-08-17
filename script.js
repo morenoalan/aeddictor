@@ -93,22 +93,15 @@ function sendStyle(style){
         case 'italic':
             applyStyle('font-style', 'italic');
             break;
-    }
-}
-
-
-function applyTextUnderline(){
-    if(textStyle.getPropertyValue("text-decoration") != 'underline'){
-        textStyle.setProperty('text-decoration', 'underline');
-    }else{
-        textStyle.setProperty('text-decoration', '');
-    }
-}
-function applyTextThrough(){
-    if(textStyle.getPropertyValue("text-decoration") != 'line-through'){
-        textStyle.setProperty('text-decoration', 'line-through');
-    }else{
-        textStyle.setProperty('text-decoration', '');
+        case 'underline':
+            applyStyle('text-decoration', 'underline');
+            break;
+        case 'line-through':
+            applyStyle('text-decoration', 'line-through');
+            break;
+        default:
+            console.log('No command.');
+            break;
     }
 }
 
