@@ -32,8 +32,8 @@
 	<div id='loader'></div>
 	<div id='vertical-centralizer'>
 		<main id='main' class='main-light'>
-			<section id='main-header' class='main-header-light'>
-				<section id='title-bar' class='main-header-bars main-header-light'>
+			<section id='header-section' class='header-section-light'>
+				<section id='title-bar' class='header-section-bars header-section-light'>
 					<div id='title'>Æddictor - Addictive Editor</div>
 					<div id='right-top-corner'>
 						<button id='save-file' class='button button-light display-none' onclick='saveFile();'>
@@ -53,7 +53,7 @@
 						</button>
 					</div>
 				</section>
-				<section id='tools-bar' class='main-header-bars main-header-light'>
+				<section id='tools-bar' class='header-section-bars header-section-light'>
 					<button id='apply-undo' class='button button-light display-none' onclick='applyUndo();'>
 						<span class='material-symbols-outlined'>
 							reply
@@ -167,6 +167,7 @@
 			<section id='text-section' class='text-area-light'>
 				<textarea id='text-area' class='text-area-light scroll scroll-light' name='text-area' placeholder='Type something nice &#128578;' rows='' type='text' autofocus='autofocus'></textarea>
 			</section>
+			<section id='status-section' class='display-none'></section>
 		</main>
 	</div>
 	<footer id='footer'>

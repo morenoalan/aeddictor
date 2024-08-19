@@ -61,7 +61,7 @@ main {
 .main-dark {
     box-shadow: 0px 0px 50px 5px rgb(15, 15, 15);
 }
-#main-header {
+#header-section {
     height: 100%;
     width:100%;
     display: flex;
@@ -76,10 +76,10 @@ main {
     border-top-right-radius: 8px;
     border-top-left-radius: 8px;
 }
-.main-header-light {
+.header-section-light {
     background-color: var(--color-bar);
 }
-.main-header-dark {
+.header-section-dark {
     background-color:rgb(40, 40, 40);
     color: rgb(224, 224, 224);
     font-weight: lighter;
@@ -109,7 +109,7 @@ main {
     margin-left: 5px;
     margin-right: 5px;
 }
-.main-header-bars {
+.header-section-bars {
     align-items: center;
     width: 100%;
     height: 100%;

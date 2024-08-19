@@ -22,9 +22,9 @@ function changeTheme(statusTheme){
 
     document.getElementById('main').classList.toggle('main-dark');
 
-    let mainHeaderLightElements = document.getElementsByClassName('main-header-light');
+    let mainHeaderLightElements = document.getElementsByClassName('header-section-light');
     for(let i = 0; i < mainHeaderLightElements.length; i++){
-        mainHeaderLightElements[i].classList.toggle('main-header-dark');
+        mainHeaderLightElements[i].classList.toggle('header-section-dark');
     }
 
     let buttonLightElements = document.getElementsByClassName('button-light');
