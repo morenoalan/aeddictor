@@ -87,9 +87,11 @@ function applyStyle(set, style){
 
 function sendStyle(style){
     switch(style){
+        /*
         case 'font':
             applyStyle('font-size', font);
             break;
+        */
         case 'bold':
             applyStyle('font-weight', 'bold');
             break;
